@@ -1,2 +1,2 @@
 # EthHunter
-Discord bot that uses the 2miners api to display mining data
+Discord bot using Corona in Zahlen Api to Display the current Corona Data
