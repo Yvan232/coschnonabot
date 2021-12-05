@@ -4,6 +4,9 @@ const { MessageEmbed } = require("discord.js")
 
 const client = new Discord.Client();
 
+//replace with your token
+const token = "";
+
 //replace with your province of choice
 const province = "NW";
 
@@ -34,4 +37,4 @@ client.on('message', async message => {
     }
 });
 
-client.login('OTEyODI2OTQ0MjgwNzM1NzY0.YZ1mVw.-HNfrWnuDEcCxQvJYcUE0nODtqs');
+client.login(token);
