@@ -3,40 +3,35 @@ const fetch = require('node-fetch');
 const { MessageEmbed } = require("discord.js")
 
 const client = new Discord.Client();
+
+//replace with your province of choice
+const province = "NW";
+
+//replace with your prefix of choice
 const prefix = '!';
 
-const trim = (str, max) => str.length > max ? `${str.slice(0, max - 3)}...` : str;
 
 client.once('ready', () => {
-	console.log('Ready!');
+	console.log('coschonabot by m00ba');
 });
 
 client.on('message', async message => {
-    if (message.content === 'cat') {
-        message.reply('schmock');
-      
-      
-		const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
-
-		message.channel.send(file);
-
-        //Es ist fucking 2 uhr wieso bau ich ne Katzen Funkiton ein was ist falsch in meinem leben 
-    }else if (message.content === '!status') {
-    
+    if (message.content === prefix + 'status') {
+            
         var statrespone = await fetch('https://api.corona-zahlen.org/states/').then (response => response.json());
 
         const answer = statrespone;
         const embed = new MessageEmbed()
                 .setColor('00ff94')
-                .setTitle('Aktuelle Daten')
+                .setTitle('Aktuelle Corona Daten in ' + province)
                 .setImage('https://api.corona-zahlen.org/map/states-legend')
                 .addFields(
-                    {name: 'Inzidenz: ', value: statrespone.data.NW.weekIncidence},
-                    {name: 'Einwohner: ', value: statrespone.data.NW.population},
-                    {name: 'Erkrankungen: ', value: statrespone.data.NW.cases}
+                    {name: 'Inzidenz: ', value: statrespone.data.NW.weekIncidence.toFixed(0), inline: true},
+                    {name: 'Einwohner: ', value: statrespone.data.NW.population.toLocaleString(), inline: true},
+                    {name: 'Erkrankungen: ', value: statrespone.data.NW.cases.toLocaleString(), inline: true}
                 )
         message.channel.send(embed);
     }
 });
 
-client.login('your token');
+client.login('OTEyODI2OTQ0MjgwNzM1NzY0.YZ1mVw.-HNfrWnuDEcCxQvJYcUE0nODtqs');
