@@ -35,22 +35,6 @@ client.on('message', async message => {
         message.channel.send(embed);
     
     }
-
-client.on('message', message => {
-
-    let args = message.content.substring(prefix.length).split(" ");
-
-    switch (args[0]){
-        case 'play':
-            if(!args[1]){
-                message.channel.send('Du hast kein Lied angegeben');
-                return;
-            }
-    }
-
-
-
-});
 });
 
 client.login(token);
