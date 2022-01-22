@@ -1,5 +1,5 @@
 # coschonabot
-Discord bot using Corona in Zahlen Api to Display the current CovidData
+Discord bot using Corona in Zahlen Api to Display the current Covid Data
 
 ### How to Install
 1. Clone this git `git clone https://github.com/Yvan232/coschnonabot.git`
